@@ -30,7 +30,7 @@ export function ProductPage() {
   const category = getCategoryBySlug(product.category);
   const related = getRelatedProducts(product, 4);
   const discount =
-    product.originalPrice && product.originalPrice > product.price
+    product.originalPrice && product.price && product.originalPrice > product.price
       ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
       : 0;
 
@@ -103,17 +103,25 @@ export function ProductPage() {
             </h1>
 
             <div className="mt-4 sm:mt-5 flex items-baseline gap-2 sm:gap-3 flex-wrap">
-              {product.originalPrice && (
-                <span className="text-base sm:text-lg text-muted-foreground line-through">
-                  {formatPrice(product.originalPrice)}
-                </span>
-              )}
-              <span className="text-3xl sm:text-4xl md:text-5xl font-black text-[hsl(var(--brand-navy))]">
-                {formatPrice(product.price)}
-              </span>
-              {discount > 0 && (
-                <span className="text-xs sm:text-sm font-black text-[hsl(var(--brand-orange))] bg-[hsl(var(--brand-orange))]/10 px-2.5 py-1 rounded-full">
-                  Economiza {formatPrice(product.originalPrice! - product.price)}
+              {product.price ? (
+                <>
+                  {product.originalPrice && (
+                    <span className="text-base sm:text-lg text-muted-foreground line-through">
+                      {formatPrice(product.originalPrice)}
+                    </span>
+                  )}
+                  <span className="text-3xl sm:text-4xl md:text-5xl font-black text-[hsl(var(--brand-navy))]">
+                    {formatPrice(product.price)}
+                  </span>
+                  {discount > 0 && (
+                    <span className="text-xs sm:text-sm font-black text-[hsl(var(--brand-orange))] bg-[hsl(var(--brand-orange))]/10 px-2.5 py-1 rounded-full">
+                      Economiza {formatPrice(product.originalPrice! - product.price)}
+                    </span>
+                  )}
+                </>
+              ) : (
+                <span className="text-3xl sm:text-4xl md:text-5xl font-black text-[hsl(var(--brand-navy))]">
+                  Consulte preço
                 </span>
               )}
             </div>

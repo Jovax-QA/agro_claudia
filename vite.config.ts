@@ -29,10 +29,6 @@ export default defineConfig({
     host: "0.0.0.0",
   },
 
-
-
-
-  ''
   preview: {
     port,
     host: "0.0.0.0",

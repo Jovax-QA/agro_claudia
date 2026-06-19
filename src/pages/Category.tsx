@@ -30,7 +30,7 @@ export function CategoryPage() {
   );
 
   const maxAvailablePrice = useMemo(
-    () => Math.max(100, ...allProducts.map((p) => p.price)),
+    () => Math.max(100, ...allProducts.map((p) => p.price || 0)),
     [allProducts],
   );
 
@@ -39,13 +39,13 @@ export function CategoryPage() {
     if (activeSub !== "all") {
       items = items.filter((p) => p.subcategory === activeSub);
     }
-    items = items.filter((p) => p.price <= maxPrice);
+    items = items.filter((p) => !p.price || p.price <= maxPrice);
     items = [...items].sort((a, b) => {
       switch (sort) {
         case "price-asc":
-          return a.price - b.price;
+          return (a.price || 0) - (b.price || 0);
         case "price-desc":
-          return b.price - a.price;
+          return (b.price || 0) - (a.price || 0);
         case "name":
           return a.name.localeCompare(b.name);
         case "popular":

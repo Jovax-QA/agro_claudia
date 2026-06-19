@@ -20,7 +20,7 @@ type ProductCardProps = {
 
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const discount =
-    product.originalPrice && product.originalPrice > product.price
+    product.originalPrice && product.price && product.originalPrice > product.price
       ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
       : 0;
 
@@ -68,16 +68,22 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
         </Link>
 
         <div className="mt-auto min-w-0">
-          <div className="flex items-baseline gap-1.5 sm:gap-2 flex-wrap">
-            {product.originalPrice && (
-              <span className="text-[11px] sm:text-xs text-muted-foreground line-through">
-                {formatPrice(product.originalPrice)}
+          {product.price ? (
+            <div className="flex items-baseline gap-1.5 sm:gap-2 flex-wrap">
+              {product.originalPrice && (
+                <span className="text-[11px] sm:text-xs text-muted-foreground line-through">
+                  {formatPrice(product.originalPrice)}
+                </span>
+              )}
+              <span className="text-lg sm:text-xl font-black text-[hsl(var(--brand-navy))] leading-none">
+                {formatPrice(product.price)}
               </span>
-            )}
-            <span className="text-lg sm:text-xl font-black text-[hsl(var(--brand-navy))] leading-none">
-              {formatPrice(product.price)}
-            </span>
-          </div>
+            </div>
+          ) : (
+            <p className="text-xs font-bold text-[hsl(var(--brand-navy))]">
+              Consulte preço
+            </p>
+          )}
           <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1">
             no PIX / cartão. Consulte!
           </p>

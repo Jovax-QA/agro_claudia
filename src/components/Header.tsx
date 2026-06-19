@@ -109,7 +109,7 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li>
+            '<li>
               <Link
                 href="/contato"
                 className="inline-flex items-center px-4 py-3 text-sm font-bold text-[hsl(var(--brand-navy))] hover:text-[hsl(var(--brand-orange))] transition whitespace-nowrap"
