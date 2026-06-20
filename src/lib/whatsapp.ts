@@ -32,7 +32,6 @@ export function whatsappForProduct(product: Product): string {
     `Tenho interesse no produto:`,
     `*${product.name}*`,
     `Marca: ${product.brand}`,
-    `Preço: ${formatPrice(product.price)}`,
     "",
     "Podem me ajudar com mais informações sobre disponibilidade e formas de pagamento?",
   ];

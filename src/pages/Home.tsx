@@ -9,7 +9,6 @@ import {
   MapPin,
   Phone,
   Clock,
-  Tag,
 } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { Logo } from "@/components/Logo";
@@ -18,7 +17,6 @@ import { ProductCard } from "@/components/ProductCard";
 import { WhatsappButton } from "@/components/WhatsappButton";
 import { categories } from "@/data/categories";
 import {
-  getOnSaleProducts,
   getFeaturedProducts,
   getPopularProducts,
 } from "@/data/products";
@@ -32,7 +30,6 @@ import {
 const ASSET_BASE = import.meta.env.BASE_URL;
 
 export function HomePage() {
-  const onSale = getOnSaleProducts().slice(0, 4);
   const featured = getFeaturedProducts().slice(0, 8);
   const popular = getPopularProducts().slice(0, 4);
 
@@ -52,34 +49,6 @@ export function HomePage() {
           {categories.map((c, i) => (
             <CategoryCard key={c.id} category={c} index={i} />
           ))}
-        </div>
-      </section>
-
-      {/* Weekly offers */}
-      <section className="bg-gradient-to-br from-[hsl(var(--brand-orange))]/10 via-transparent to-[hsl(var(--brand-navy))]/5">
-        <div className="max-w-7xl mx-auto px-4 py-10 sm:py-14">
-          <div className="flex items-end justify-between flex-wrap gap-3 sm:gap-4">
-            <div className="min-w-0">
-              <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-black uppercase tracking-widest text-[hsl(var(--brand-orange))] bg-[hsl(var(--brand-orange))]/10 px-3 py-1.5 rounded-full">
-                <Tag className="w-3.5 h-3.5" /> Ofertas da semana
-              </span>
-              <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-black text-[hsl(var(--brand-navy))] tracking-tight">
-                Preços que valem a viagem
-              </h2>
-            </div>
-            <Link
-              href="/categoria/agropecuaria"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[hsl(var(--brand-navy))] hover:text-[hsl(var(--brand-orange))] transition"
-            >
-              Ver tudo <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="mt-6 sm:mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-            {onSale.map((p, i) => (
-              <ProductCard key={p.id} product={p} index={i} />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -230,15 +199,6 @@ function Hero() {
                 <div className="text-[10px] sm:text-xs text-muted-foreground">no WhatsApp</div>
               </div>
             </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-              className="absolute -top-3 right-2 sm:-top-4 sm:-right-4 bg-[hsl(var(--brand-orange))] text-white p-2.5 sm:p-3 rounded-2xl shadow-xl"
-            >
-              <div className="text-[10px] font-bold uppercase tracking-widest">Oferta</div>
-              <div className="text-xl sm:text-2xl font-black">-25%</div>
-            </motion.div>
           </div>
         </motion.div>
       </div>
@@ -251,12 +211,11 @@ function Trust() {
     { icon: ShieldCheck, label: "Marcas confiáveis", sub: "Tigre, Bosch, Irwin, Philips e mais" },
     { icon: Truck, label: "Pertinho de você", sub: "Bairro Argentina · Criciúma" },
     { icon: HandshakeIcon, label: "Atendimento humano", sub: "Gente que entende do assunto" },
-    { icon: Tag, label: "Ofertas semanais", sub: "Sempre vale a pena dar uma olhada" },
   ];
 
   return (
     <section className="bg-[hsl(var(--brand-cream))] border-y border-card-border">
-      <div className="max-w-7xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="max-w-7xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-3 gap-4">
         {items.map((it) => (
           <div key={it.label} className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-full bg-[hsl(var(--brand-navy))]/8 text-[hsl(var(--brand-navy))] flex items-center justify-center shrink-0">

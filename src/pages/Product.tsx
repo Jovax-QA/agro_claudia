@@ -67,26 +67,6 @@ export function ProductPage() {
           >
             <div className="relative bg-white rounded-3xl border border-card-border shadow-sm overflow-hidden">
               <ProductImage product={product} className="aspect-square w-full" />
-
-              <div className="absolute top-3 left-3 sm:top-5 sm:left-5 flex flex-col gap-1.5 sm:gap-2">
-                {product.badges.map((b) => (
-                  <span
-                    key={b}
-                    className={cn(
-                      "inline-flex items-center text-[10px] sm:text-xs font-black tracking-wider uppercase px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full shadow-sm",
-                      badgeStyles[b] ?? "bg-zinc-800 text-white",
-                    )}
-                  >
-                    {b}
-                  </span>
-                ))}
-              </div>
-
-              {discount > 0 && (
-                <div className="absolute top-3 right-3 sm:top-5 sm:right-5 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[hsl(var(--brand-orange))] text-white flex items-center justify-center font-black shadow-lg text-sm sm:text-lg">
-                  -{discount}%
-                </div>
-              )}
             </div>
           </motion.div>
 
@@ -101,34 +81,6 @@ export function ProductPage() {
             <h1 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-black text-[hsl(var(--brand-navy))] tracking-tight leading-tight">
               {product.name}
             </h1>
-
-            <div className="mt-4 sm:mt-5 flex items-baseline gap-2 sm:gap-3 flex-wrap">
-              {product.price ? (
-                <>
-                  {product.originalPrice && (
-                    <span className="text-base sm:text-lg text-muted-foreground line-through">
-                      {formatPrice(product.originalPrice)}
-                    </span>
-                  )}
-                  <span className="text-3xl sm:text-4xl md:text-5xl font-black text-[hsl(var(--brand-navy))]">
-                    {formatPrice(product.price)}
-                  </span>
-                  {discount > 0 && (
-                    <span className="text-xs sm:text-sm font-black text-[hsl(var(--brand-orange))] bg-[hsl(var(--brand-orange))]/10 px-2.5 py-1 rounded-full">
-                      Economiza {formatPrice(product.originalPrice! - product.price)}
-                    </span>
-                  )}
-                </>
-              ) : (
-                <span className="text-3xl sm:text-4xl md:text-5xl font-black text-[hsl(var(--brand-navy))]">
-                  Consulte preço
-                </span>
-              )}
-            </div>
-
-            <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
-              ou consulte condições no PIX e cartão pelo WhatsApp.
-            </p>
 
             <div className="mt-5 sm:mt-6 flex items-center gap-3">
               <WhatsappButton
@@ -145,11 +97,10 @@ export function ProductPage() {
               </a>
             </div>
 
-            <div className="mt-6 grid grid-cols-3 gap-3">
+            <div className="mt-6 grid grid-cols-2 gap-3">
               {[
                 { icon: Truck, label: "Retire na loja" },
                 { icon: ShieldCheck, label: "Marca confiável" },
-                { icon: Tag, label: "Melhor preço" },
               ].map((it) => (
                 <div
                   key={it.label}
