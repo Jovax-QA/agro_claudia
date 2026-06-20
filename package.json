@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build --base=/poupar-agro/",
-    "build:gh": "vite build --base=/poupar-agro/",
+    "build": "vite build --base=/agro_claudia/",
+    "build:gh": "vite build --base=/agro_claudia/",
     "serve": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
