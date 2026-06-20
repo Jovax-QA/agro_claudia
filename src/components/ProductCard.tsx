@@ -34,27 +34,6 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
     >
       <Link href={`/produto/${product.id}`} className="block">
         <ProductImage product={product} className="aspect-square w-full" />
-
-        {/* Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1.5 max-w-[70%]">
-          {product.badges.map((b) => (
-            <span
-              key={b}
-              className={cn(
-                "inline-flex items-center text-[10px] font-black tracking-wider uppercase px-2.5 py-1 rounded-full shadow-sm w-fit",
-                badgeStyles[b] ?? "bg-zinc-800 text-white",
-              )}
-            >
-              {b}
-            </span>
-          ))}
-        </div>
-
-        {discount > 0 && (
-          <div className="absolute top-3 right-3 w-12 h-12 rounded-full bg-[hsl(var(--brand-orange))] text-white flex items-center justify-center font-black shadow-md text-sm">
-            -{discount}%
-          </div>
-        )}
       </Link>
 
       <div className="flex flex-col flex-1 p-3 sm:p-4 gap-2.5 sm:gap-3 min-w-0">
@@ -68,33 +47,13 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
         </Link>
 
         <div className="mt-auto min-w-0">
-          {product.price ? (
-            <div className="flex items-baseline gap-1.5 sm:gap-2 flex-wrap">
-              {product.originalPrice && (
-                <span className="text-[11px] sm:text-xs text-muted-foreground line-through">
-                  {formatPrice(product.originalPrice)}
-                </span>
-              )}
-              <span className="text-lg sm:text-xl font-black text-[hsl(var(--brand-navy))] leading-none">
-                {formatPrice(product.price)}
-              </span>
-            </div>
-          ) : (
-            <p className="text-xs font-bold text-[hsl(var(--brand-navy))]">
-              Consulte preço
-            </p>
-          )}
-          <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-1">
-            no PIX / cartão. Consulte!
-          </p>
+          <WhatsappButton
+            message={whatsappForProduct(product)}
+            label="Pedir no WhatsApp"
+            size="sm"
+            fullWidth
+          />
         </div>
-
-        <WhatsappButton
-          message={whatsappForProduct(product)}
-          label="Pedir no WhatsApp"
-          size="sm"
-          fullWidth
-        />
       </div>
     </motion.div>
   );
