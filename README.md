@@ -1,5 +1,11 @@
 # Poupar Agro Comercial
 
+Site de e-commerce para produtos agropecuários, ferramentas, elétricos e mais.
+
+## Deploy
+
+Deploy automático via GitHub Actions para GitHub Pages em: https://jovax-qa.github.io/agro_claudia/
+
 Projeto de e-commerce desenvolvido no Replit e adaptado para GitHub Pages.
 
 ## Configurações para GitHub Pages
