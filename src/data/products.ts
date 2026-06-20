@@ -221,7 +221,8 @@ export const products: Product[] = [
     category: "animais",
     subcategory: "racao-aves",
     description: "Periquitos australianos saudáveis e domesticados. Ideais para companhia e canto.",
-    image: I("prod-animais-1.png"),
+    price: 89.9,
+    image: "https://res.cloudinary.com/dxnmjt7zn/image/upload/fl_preserve_transparency/v1781890967/PERIQUITOS_AGRO_CLAUDI_np7ywt.jpg?_s=public-apps",
     imageColor: "from-green-100 to-green-300",
     specifications: [
       { label: "Espécie", value: "Periquito Australiano" },
@@ -778,7 +779,8 @@ export const products: Product[] = [
     category: "eletrica",
     subcategory: "bombas",
     description: "Bomba d'água automática com alimentação USB. Ideal para aquários e pequenos sistemas de irrigação.",
-    image: I("prod-eletrica-1.jpg"),
+    price: 59.9,
+    image: "https://res.cloudinary.com/dxnmjt7zn/image/upload/fl_preserve_transparency/v1781891976/BOMBA_DE_AGUA_AUTOMATICA_USB_AGRO_CLAUDIA_t2uszi.jpg?_s=public-apps",
     imageColor: "from-blue-100 to-blue-300",
     specifications: [
       { label: "Alimentação", value: "USB" },
@@ -875,7 +877,8 @@ export const products: Product[] = [
     category: "controle-pragas",
     subcategory: "inseticidas",
     description: "Redenticida eficaz para controle de roedores em ambientes domésticos e comerciais.",
-    image: I("prod-pragas-1.jpg"),
+    price: 24.9,
+    image: "https://res.cloudinary.com/dxnmjt7zn/image/upload/fl_preserve_transparency/v1781891253/REDENTICIDA_AGRO_CLAUDIA_ngflnh.jpg?_s=public-apps",
     imageColor: "from-red-100 to-red-300",
     specifications: [
       { label: "Tipo", value: "Redenticida" },
@@ -894,7 +897,8 @@ export const products: Product[] = [
     category: "controle-pragas",
     subcategory: "inseticidas",
     description: "Inseticida especializado para controle de cupins. Fórmula incolor e de longa duração.",
-    image: I("prod-pragas-2.jpg"),
+    price: 49.9,
+    image: "https://res.cloudinary.com/dxnmjt7zn/image/upload/fl_preserve_transparency/v1781891251/JIMO_CUPIM_INCOLOR_AGRO_CLAUDIA_vzntf3.jpg?_s=public-apps",
     imageColor: "from-amber-100 to-amber-300",
     specifications: [
       { label: "Tipo", value: "Inseticida" },

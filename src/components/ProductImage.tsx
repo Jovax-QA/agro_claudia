@@ -3,14 +3,6 @@ import type { Product } from "@/data/products";
 
 const ASSET_BASE = import.meta.env.BASE_URL;
 
-const HAS_REAL_IMAGE = new Set([
-  "images/prod-racao-cat.png",
-  "images/prod-racao-dog.png",
-  "images/prod-racao-aves.png",
-  "images/prod-alicate.png",
-  "images/prod-trena.png",
-]);
-
 type ProductImageProps = {
   product: Product;
   className?: string;
@@ -18,7 +10,7 @@ type ProductImageProps = {
 };
 
 export function ProductImage({ product, className, imgClassName }: ProductImageProps) {
-  const realImage = HAS_REAL_IMAGE.has(product.image);
+  const isExternalUrl = product.image.startsWith('http');
   const initials = getInitials(product.brand);
 
   return (
@@ -29,19 +21,29 @@ export function ProductImage({ product, className, imgClassName }: ProductImageP
         className,
       )}
     >
-      {realImage ? (
+      {isExternalUrl || product.image !== 'placeholder.png' ? (
         <img
-          src={`${ASSET_BASE}${product.image}`}
+          src={isExternalUrl ? product.image : `${ASSET_BASE}${product.image}`}
           alt={product.name}
           loading="lazy"
           className={cn(
             "absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-110",
             imgClassName,
           )}
+          onError={(e) => {
+            // Fallback to placeholder if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            const placeholder = target.parentElement?.querySelector('[data-placeholder]');
+            if (placeholder) {
+              (placeholder as HTMLElement).style.display = 'flex';
+            }
+          }}
         />
-      ) : (
+      ) : null}
+      <div data-placeholder className={cn(isExternalUrl || product.image !== 'placeholder.png' ? 'hidden' : 'flex')} style={{ display: isExternalUrl || product.image !== 'placeholder.png' ? 'none' : 'flex' }}>
         <PlaceholderProduct initials={initials} brand={product.brand} />
-      )}
+      </div>
     </div>
   );
 }
