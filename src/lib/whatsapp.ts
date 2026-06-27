@@ -5,9 +5,10 @@ export const WHATSAPP_DISPLAY = "(48) 98804-2128";
 export const STORE_NAME = "Poupar Agro Comercial";
 export const STORE_ADDRESS = "R. Fortaleza, 584 - Argentina, Criciúma/SC";
 export const STORE_HOURS = [
-  { days: "Segunda a Sexta", hours: "08:00 às 18:30" },
+  { days: "Segunda a Sexta", hours: "08:00 às 19:00" },
   { days: "Sábado", hours: "08:00 às 17:00" },
   { days: "Domingo", hours: "Fechado" },
+  { days: "", hours: "(sem fechar ao meio dia)" },
 ];
 
 function formatPrice(value: number): string {

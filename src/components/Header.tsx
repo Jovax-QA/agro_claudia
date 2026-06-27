@@ -42,7 +42,7 @@ export function Header() {
             </span>
           </div>
           <span className="font-semibold uppercase tracking-wider text-white/80">
-            Seg. a Sex. 8h–18h30 · Sáb. 8h–17h
+            Seg. a Sex. 8h–19h · Sáb. 8h–17h (sem fechar ao meio dia)
           </span>
         </div>
       </div>
