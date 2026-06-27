@@ -31,7 +31,7 @@ const ASSET_BASE = import.meta.env.BASE_URL;
 
 export function HomePage() {
   const featured = getFeaturedProducts().slice(0, 8);
-  const popular = getPopularProducts().slice(0, 4);
+  const popular = getPopularProducts().slice(0, 5);
 
   return (
     <PageLayout>
@@ -146,27 +146,6 @@ function Hero() {
             </Link>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="mt-6 sm:mt-8 grid grid-cols-3 gap-3 sm:gap-4 max-w-md"
-          >
-            {[
-              { kpi: "+1.500", label: "Produtos" },
-              { kpi: "4", label: "Categorias" },
-              { kpi: "20+ anos", label: "Em Criciúma" },
-            ].map((item) => (
-              <div key={item.label} className="min-w-0">
-                <div className="text-lg sm:text-xl md:text-2xl font-black text-[hsl(var(--brand-orange))] truncate">
-                  {item.kpi}
-                </div>
-                <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-white/70 font-semibold">
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
         <motion.div
@@ -248,7 +227,7 @@ function CallToActionBanner() {
             Não achou o produto? Manda no WhatsApp que a gente acha.
           </h3>
           <p className="mt-3 text-sm md:text-base text-white/80 max-w-2xl">
-            Atendimento personalizado das 8h às 18h30. Pedidos, dúvidas e orçamentos sem complicação.
+            Atendimento personalizado das 8h às 19h · Sáb. 8h–17h (sem fechar ao meio dia). Pedidos, dúvidas e orçamentos sem complicação.
           </p>
         </div>
         <WhatsappButton

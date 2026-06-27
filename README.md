@@ -1,12 +1,38 @@
-# Poupar Agro Comercial
+# AgroClaudia - Poupar Agro Comercial
 
-Site de e-commerce para produtos agropecuários, ferramentas, elétricos e mais.
+## Sobre o Projeto
+
+Site de e-commerce para a **Poupar Agro Comercial**, loja de produtos agropecuários, ferramentas, elétricos e mais, localizada em Criciúma/SC.
+
+### Cliente
+
+- **Nome da Loja**: Poupar Agro Comercial
+- **Proprietária**: Claudia
+- **Endereço**: Rua Fortaleza, 584, Bairro Argentina, Criciúma/SC
+- **Telefone/WhatsApp**: (48) 98804-2128
+- **E-mail**: contato@pouparagro.com.br
+- **Tempo de atuação**: 20+ anos em Criciúma
+
+### O que foi desenvolvido
+
+E-commerce completo com catálogo de produtos, categorias, busca, integração com WhatsApp e informações de contato da loja. O projeto foi desenvolvido para digitalizar a presença da Poupar Agro Comercial, permitindo que clientes visualizem produtos e façam pedidos diretamente pelo WhatsApp.
+
+### Funcionalidades
+
+- Catálogo de produtos com mais de 1.500 itens
+- 4 categorias principais: Agropecuária, Elétrica, Ferragens, Pet
+- Busca de produtos
+- Páginas de categoria e produto detalhadas
+- Integração direta com WhatsApp para pedidos
+- Informações completas de contato e localização
+- Design responsivo (mobile, tablet, desktop)
+- Animações suaves e modernas
 
 ## Deploy
 
-Deploy automático via GitHub Actions para GitHub Pages em: https://jovax-qa.github.io/agro_claudia/
+**URL em Produção**: https://jovax-qa.github.io/agro_claudia/
 
-Projeto de e-commerce desenvolvido no Replit e adaptado para GitHub Pages.
+Deploy automático via GitHub Actions para GitHub Pages.
 
 ## Configurações para GitHub Pages
 
